@@ -22,6 +22,7 @@ bits 32
 start:
 	; setup the stack
 	mov esp, stack_top
+	mov edi, ebx			; move multiboot info pointer to edi
 
 	; cpu feature checks
 	call check_multiboot
@@ -103,6 +104,11 @@ check_long_mode:
 	jmp error
 
 set_up_page_tables:
+	; setup recursive mapping
+	mov eax, p4_table
+	or eax, 0b11 ; present + writable
+	mov [p4_table + 511*8], eax
+
 	; map first p4 entry to p3 table
 	mov eax, p3_table
 	or eax, 0b11			; present + writable
@@ -178,5 +184,5 @@ p3_table:
 p2_table:
 	resb 4096
 stack_bottom:
-	resb 64
+	resb 4096 * 4
 stack_top:

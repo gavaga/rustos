@@ -1,0 +1,23 @@
+[package]
+name        = "rustos"
+version     = "0.1.0"
+authors     = ["Gavin McDowell <gavin.mcdowell.14@gmail.com>"]
+publish     = false
+description = "A toy OS written in rust."
+
+[lib]
+name       = "os"
+crate-type = ["staticlib"]
+
+[features]
+default = ["vga"]
+vga     = []
+uart    = []
+
+[dependencies]
+rlibc      = "1.0"
+spin       = "0.4.5"
+volatile   = "0.1.0"
+multiboot2 = "0.1.0"
+bitflags   = "0.9.1"
+x86_64     = "0.1.2"

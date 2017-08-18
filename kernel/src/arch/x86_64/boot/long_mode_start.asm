@@ -2,7 +2,8 @@
 ; file: long_mode_start.asm
 ;
 ; This file is the secondary entrypoint for the kernel. By this point 64-bit instructions should be enabled,
-; the initial stack and page tables should be set up, and initial cpu checks should have been done.
+; the initial stack and page tables should be set up, and initial cpu checks should have been done. This code primarily
+; serves to jump into the rust entrypoint for the rest of the OS.
 ;
 ; notes:
 ;		original implementation taken from https://github.com/phil-opp/blog_os/src/arch/x86_64/long_mode_start.asm
@@ -25,6 +26,10 @@ long_mode_start:
 	mov es, ax
 	mov fs, ax
 	mov gs, ax
+
+	; jump into the rust entrypoint
+	extern rust_main
+	call rust_main
 
 	; print `OKAY` to screen
 	mov rax, 0x2f592f412f4b2f4f

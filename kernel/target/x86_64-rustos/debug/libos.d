@@ -1,0 +1,1 @@
+/home/gavinm/dev/rust/os/kernel/target/x86_64-rustos/debug/libos.a: /home/gavinm/dev/rust/os/kernel/src/mem/area_frame_allocator.rs /home/gavinm/dev/rust/os/kernel/src/vga/mod.rs /home/gavinm/dev/rust/os/kernel/src/chk/mod.rs /home/gavinm/dev/rust/os/kernel/src/lib.rs /home/gavinm/dev/rust/os/kernel/src/mem/mod.rs

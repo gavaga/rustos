@@ -1,0 +1,1 @@
+{"rustc":8168799563935738255,"features":"[]","target":16305595488331471772,"profile":731176819336294830,"deps":[["bitflags v0.4.0",9172838949318551701]],"local":[{"Precalculated":"0.1.0"}],"rustflags":["--sysroot","/home/gavinm/.xargo"]}
